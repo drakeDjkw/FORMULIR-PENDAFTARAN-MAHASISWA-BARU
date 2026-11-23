@@ -557,6 +557,9 @@ class AuthTestCase(APITestCase):
         self.assertFalse(client.get("/api/users/info/").json()["is_authenticated"])
 
 
+# Tests run with DEBUG = False, where only "testserver" is an allowed host; runserver (DEBUG = True)
+# already allows localhost and 127.0.0.1, so the test allows them the same way
+@override_settings(ALLOWED_HOSTS=["testserver", "localhost", "127.0.0.1"])
 class CsrfThroughViteProxyTestCase(APITestCase):
     """A POST that comes through the Vite proxy (Origin localhost:5173, Host 127.0.0.1:8000) is accepted."""
 
