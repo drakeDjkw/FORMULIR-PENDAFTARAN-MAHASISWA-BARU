@@ -1,0 +1,288 @@
+# Indonesian translation of the New Student Registration Form coursework.
+# Compile with: python tools/compile_messages.py  (or: python manage.py compilemessages)
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pmb 1.0\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Scan"
+msgstr "Pindaian"
+
+msgid "Total records"
+msgstr "Jumlah data"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Kode"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Description"
+msgstr "Deskripsi"
+
+msgid "Owner"
+msgstr "Pemilik"
+
+msgid "Faculties"
+msgstr "Fakultas"
+
+msgid "Avg study programs per faculty"
+msgstr "Rata-rata program studi per fakultas"
+
+msgid "Most study programs in one faculty"
+msgstr "Program studi terbanyak dalam satu fakultas"
+
+msgid "Total quota"
+msgstr "Total kuota"
+
+msgid "Faculties with logo"
+msgstr "Fakultas dengan logo"
+
+msgid "Degree"
+msgstr "Jenjang"
+
+msgid "Quota"
+msgstr "Kuota"
+
+msgid "Faculty"
+msgstr "Fakultas"
+
+msgid "Study programs"
+msgstr "Program studi"
+
+msgid "Bachelor (S1) programs"
+msgstr "Program sarjana (S1)"
+
+msgid "Avg quota"
+msgstr "Rata-rata kuota"
+
+msgid "Smallest quota"
+msgstr "Kuota terkecil"
+
+msgid "Largest quota"
+msgstr "Kuota terbesar"
+
+msgid "Avg first-choice applicants"
+msgstr "Rata-rata pendaftar pilihan pertama"
+
+msgid "Most first-choice applicants"
+msgstr "Pendaftar pilihan pertama terbanyak"
+
+msgid "Registration fee (IDR)"
+msgstr "Biaya pendaftaran (Rp)"
+
+msgid "Opens on"
+msgstr "Dibuka"
+
+msgid "Closes on"
+msgstr "Ditutup"
+
+msgid "Admission paths"
+msgstr "Jalur pendaftaran"
+
+msgid "Avg fee (IDR)"
+msgstr "Rata-rata biaya (Rp)"
+
+msgid "Lowest fee (IDR)"
+msgstr "Biaya terendah (Rp)"
+
+msgid "Highest fee (IDR)"
+msgstr "Biaya tertinggi (Rp)"
+
+msgid "Avg registrations per path"
+msgstr "Rata-rata pendaftaran per jalur"
+
+msgid "Most registrations on one path"
+msgstr "Pendaftaran terbanyak pada satu jalur"
+
+msgid "Full name"
+msgstr "Nama lengkap"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Phone"
+msgstr "Telepon"
+
+msgid "Gender"
+msgstr "Jenis kelamin"
+
+msgid "Place of birth"
+msgstr "Tempat lahir"
+
+msgid "Date of birth"
+msgstr "Tanggal lahir"
+
+msgid "School of origin"
+msgstr "Asal sekolah"
+
+msgid "Applicants"
+msgstr "Calon mahasiswa"
+
+msgid "Male"
+msgstr "Laki-laki"
+
+msgid "Female"
+msgstr "Perempuan"
+
+msgid "Earliest date of birth"
+msgstr "Tanggal lahir paling awal"
+
+msgid "Latest date of birth"
+msgstr "Tanggal lahir paling akhir"
+
+msgid "Different schools of origin"
+msgstr "Jumlah asal sekolah berbeda"
+
+msgid "Avg registrations per applicant"
+msgstr "Rata-rata pendaftaran per calon mahasiswa"
+
+msgid "Applicants with photo"
+msgstr "Calon mahasiswa dengan foto"
+
+msgid "Registration number"
+msgstr "Nomor pendaftaran"
+
+msgid "Applicant"
+msgstr "Calon mahasiswa"
+
+msgid "Admission path"
+msgstr "Jalur pendaftaran"
+
+msgid "First choice"
+msgstr "Pilihan pertama"
+
+msgid "Second choice"
+msgstr "Pilihan kedua"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Test score"
+msgstr "Nilai tes"
+
+msgid "Registered on"
+msgstr "Tanggal daftar"
+
+msgid "Registrations"
+msgstr "Pendaftaran"
+
+msgid "Submitted"
+msgstr "Diajukan"
+
+msgid "Verified"
+msgstr "Terverifikasi"
+
+msgid "Accepted"
+msgstr "Diterima"
+
+msgid "Rejected"
+msgstr "Ditolak"
+
+msgid "Acceptance rate, %"
+msgstr "Tingkat penerimaan, %"
+
+msgid "Avg test score"
+msgstr "Rata-rata nilai tes"
+
+msgid "Highest test score"
+msgstr "Nilai tes tertinggi"
+
+msgid "Distinct applicants"
+msgstr "Jumlah calon mahasiswa berbeda"
+
+msgid "Registration"
+msgstr "Pendaftaran"
+
+msgid "Document type"
+msgstr "Jenis berkas"
+
+msgid "Caption"
+msgstr "Keterangan"
+
+msgid "Uploaded at"
+msgstr "Diunggah pada"
+
+msgid "Documents"
+msgstr "Berkas"
+
+msgid "Registrations with documents"
+msgstr "Pendaftaran yang memiliki berkas"
+
+msgid "Invalid username or password."
+msgstr "Nama pengguna atau kata sandi salah."
+
+msgid "New student admission"
+msgstr "Penerimaan mahasiswa baru"
+
+#, python-format
+msgid "Records: %(count)s"
+msgstr "Jumlah data: %(count)s"
+
+msgid "User"
+msgstr "Pengguna"
+
+msgid "Diploma (D3)"
+msgstr "Diploma (D3)"
+
+msgid "Bachelor (S1)"
+msgstr "Sarjana (S1)"
+
+msgid "Master (S2)"
+msgstr "Magister (S2)"
+
+msgid "Study program"
+msgstr "Program studi"
+
+msgid "Address"
+msgstr "Alamat"
+
+msgid "School diploma"
+msgstr "Ijazah"
+
+msgid "Report card"
+msgstr "Rapor"
+
+msgid "ID card"
+msgstr "KTP"
+
+msgid "Certificate"
+msgstr "Sertifikat"
+
+msgid "Other"
+msgstr "Lainnya"
+
+msgid "Registration document"
+msgstr "Berkas pendaftaran"
+
+msgid "Registration documents"
+msgstr "Berkas pendaftaran"
+
+msgid "The closing date must be after the opening date."
+msgstr "Tanggal penutupan harus setelah tanggal pembukaan."
+
+msgid "The second choice must differ from the first choice."
+msgstr "Pilihan kedua harus berbeda dari pilihan pertama."
+
+msgid "This applicant is already registered through this admission path."
+msgstr "Calon mahasiswa ini sudah terdaftar melalui jalur pendaftaran ini."
+
+msgid "English"
+msgstr "Inggris"
+
+msgid "Indonesian"
+msgstr "Indonesia"
