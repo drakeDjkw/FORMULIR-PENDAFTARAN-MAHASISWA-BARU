@@ -5,7 +5,9 @@ import vue from "@vitejs/plugin-vue";
 
 // 127.0.0.1, not localhost: runserver listens on IPv4 only,
 // and Node may try IPv6 (::1) first
-const backend = "http://127.0.0.1:8000";
+// changeOrigin: false keeps the browser's Host header (localhost:5173), so Django sees the same site
+// as the Origin header and its CSRF check passes (the short form "/api": url would set changeOrigin: true)
+const backend = { target: "http://127.0.0.1:8000", changeOrigin: false };
 
 export default defineConfig({
   plugins: [vue()],

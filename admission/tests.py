@@ -522,6 +522,34 @@ class AuthTestCase(APITestCase):
         self.assertFalse(client.get("/api/users/info/").json()["is_authenticated"])
 
 
+class CsrfThroughViteProxyTestCase(APITestCase):
+    """A POST that comes through the Vite proxy (Origin localhost:5173, Host 127.0.0.1:8000) is accepted."""
+
+    def test_post_with_front_end_origin(self):
+        user = User.objects.create_user("rina", password="secret-pass-123")
+        client = APIClient(enforce_csrf_checks=True)
+        client.force_login(user)  # a real session, so DRF enforces CSRF
+        token = client.get("/api/users/info/").cookies["csrftoken"].value
+
+        r = client.post(
+            "/api/faculties/",
+            {"code": "FT", "name": "Fakultas Teknik"},
+            HTTP_X_CSRFTOKEN=token,
+            HTTP_ORIGIN="http://localhost:5173",
+            HTTP_HOST="127.0.0.1:8000",
+        )
+        self.assertEqual(r.status_code, 201)
+
+        r = client.post(
+            "/api/faculties/",
+            {"code": "FH", "name": "Fakultas Hukum"},
+            HTTP_X_CSRFTOKEN=token,
+            HTTP_ORIGIN="http://evil.example",
+            HTTP_HOST="127.0.0.1:8000",
+        )
+        self.assertEqual(r.status_code, 403)
+
+
 class GenerateDataTestCase(APITestCase):
     def test_generates_records_for_user(self):
         user = baker.make(User)

@@ -39,7 +39,7 @@ python manage.py migrate
 python manage.py createsuperuser
 python manage.py generate_data      # 10 faculties, 34 study programs, 5 paths, 1000 applicants, 1500 registrations
 python manage.py runserver
-python -m pytest                    # 47 tests
+python -m pytest                    # 48 tests
 ```
 
 `generate_data` options: `--user <username>`, `--applicants 1000`, `--registrations 1500`, `--clear` (delete that user's data first). The names come from Faker's Indonesian locale.
@@ -120,7 +120,7 @@ python manage.py migrate
 python manage.py createsuperuser
 python manage.py generate_data      # 10 fakultas, 34 program studi, 5 jalur, 1000 calon mahasiswa, 1500 pendaftaran
 python manage.py runserver
-python -m pytest                    # 47 tes
+python -m pytest                    # 48 tes
 ```
 
 Opsi `generate_data`: `--user <nama pengguna>`, `--applicants 1000`, `--registrations 1500`, `--clear` (hapus data pengguna tersebut terlebih dahulu). Nama dibuat dengan Faker berbahasa Indonesia.

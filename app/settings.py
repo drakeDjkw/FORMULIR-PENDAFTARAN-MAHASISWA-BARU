@@ -11,6 +11,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# The Vue dev server (Vite) runs on port 5173 and forwards requests here.
+# Django checks the Origin header of every POST/PUT/PATCH/DELETE, so the front end's address must be trusted.
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
