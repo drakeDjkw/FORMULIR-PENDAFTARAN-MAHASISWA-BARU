@@ -155,6 +155,18 @@ class StudyProgramsTestCase(BaseAPITestCase):
         self.assertEqual(len(self.client.get("/api/programs/", {"faculty": faculty.id}).json()), 2)
         self.assertEqual(len(self.client.get("/api/programs/", {"faculty": faculty.id, "degree": "S1"}).json()), 1)
 
+    def test_stats(self):
+        faculty = self.mine(Faculty)
+        self.mine(StudyProgram, faculty=faculty, degree="S1", quota=40)
+        self.mine(StudyProgram, faculty=faculty, degree="D3", quota=80)
+
+        stats = self.client.get("/api/programs/stats/").json()
+        self.assertEqual(stat_value(stats, "Study programs"), 2)
+        self.assertEqual(stat_value(stats, "Bachelor (S1) programs"), 1)
+        self.assertEqual(stat_value(stats, "Total quota"), 120)
+        self.assertEqual(stat_value(stats, "Avg quota"), 60)
+        self.assertEqual(stat_value(stats, "Largest quota"), 80)
+
     def test_bad_filter_value_returns_empty_list(self):
         self.mine(StudyProgram)
         r = self.client.get("/api/programs/", {"faculty": "abc"})
@@ -426,6 +438,29 @@ class DocumentsTestCase(BaseAPITestCase):
 
         self.assertEqual(self.client.delete(f"/api/documents/{r.json()[0]['id']}/").status_code, 204)
         self.assertEqual(RegistrationDocument.objects.filter(registration=registration).count(), 1)
+
+
+class EveryEndpointTestCase(BaseAPITestCase):
+    """Stats and both exports answer 200 on every model, empty or with data, as user and as superuser."""
+
+    ENDPOINTS = ["faculties", "programs", "paths", "applicants", "registrations", "documents"]
+
+    def check_all(self):
+        for name in self.ENDPOINTS:
+            for url in [f"/api/{name}/", f"/api/{name}/stats/", f"/api/{name}/export/?type=xlsx", f"/api/{name}/export/?type=docx"]:
+                with self.subTest(url=url):
+                    self.assertEqual(self.client.get(url).status_code, 200)
+
+    def test_empty(self):
+        self.check_all()
+
+    def test_with_data(self):
+        registration = baker.make(Registration, user=self.user, test_score=70, status="accepted")
+        baker.make(StudyProgram, user=self.user, faculty=registration.first_choice.faculty)
+        baker.make(RegistrationDocument, registration=registration, user=self.user, image="documents/a.png")
+        self.check_all()
+        self.client.force_authenticate(baker.make(User, is_superuser=True))
+        self.check_all()
 
 
 class OwnershipTestCase(BaseAPITestCase):

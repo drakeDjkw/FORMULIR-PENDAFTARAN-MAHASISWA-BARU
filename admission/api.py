@@ -170,7 +170,7 @@ class StudyProgramViewSet(CrudViewSet):
     def get_stats(self, qs):
         agg = qs.aggregate(
             total=Count("id"),
-            quota=Sum("quota"),
+            total_quota=Sum("quota"),  # an alias must not reuse a field name ("quota")
             avg_quota=Avg("quota"),
             min_quota=Min("quota"),
             max_quota=Max("quota"),
@@ -180,7 +180,7 @@ class StudyProgramViewSet(CrudViewSet):
         return [
             stat(_("Study programs"), agg["total"]),
             stat(_("Bachelor (S1) programs"), agg["bachelor"]),
-            stat(_("Total quota"), agg["quota"]),
+            stat(_("Total quota"), agg["total_quota"]),
             stat(_("Avg quota"), agg["avg_quota"]),
             stat(_("Smallest quota"), agg["min_quota"]),
             stat(_("Largest quota"), agg["max_quota"]),
